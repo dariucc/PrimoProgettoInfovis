@@ -1,0 +1,12 @@
+[
+	{ "x_pos0": 8, "y_pos0": 1,"x_pos1":5,"y_pos1":4,"x_pos2":7,"y_pos2":1 },
+	{ "x_pos0": 10, "y_pos0": 3,"x_pos1":6,"y_pos1":3,"x_pos2":8,"y_pos2":1 },
+	{ "x_pos0": 11, "y_pos0": 4,"x_pos1":7,"y_pos1":2,"x_pos2":9,"y_pos2":2 },
+	{ "x_pos0": 11, "y_pos0": 6,"x_pos1":8,"y_pos1":1,"x_pos2":10,"y_pos2":3 },
+	{ "x_pos0": 10, "y_pos0": 7,"x_pos1":8,"y_pos1":2,"x_pos2":9,"y_pos2":5 },
+	{ "x_pos0": 8, "y_pos0": 9,"x_pos1":8,"y_pos1":4,"x_pos2":8,"y_pos2":6 },
+	{ "x_pos0": 6, "y_pos0": 7,"x_pos1":8,"y_pos1":5,"x_pos2":7,"y_pos2":7 },
+	{ "x_pos0": 5, "y_pos0": 6,"x_pos1":8,"y_pos1":6,"x_pos2":6,"y_pos2":9 },
+	{ "x_pos0": 5, "y_pos0": 4,"x_pos1":8,"y_pos1":8,"x_pos2":8,"y_pos2":9 },
+	{ "x_pos0": 6, "y_pos0": 3,"x_pos1":8,"y_pos1":9,"x_pos2":10,"y_pos2":9 }
+]
