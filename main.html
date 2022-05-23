@@ -2,7 +2,7 @@
 <html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-  <title>Primo Progetto Visualizzazione dell'informazione</title>
+  <title>Primo Progetto Visualizzazione delle informazioni</title>
   <style>
   body {
     background-color: #80dfff;
@@ -114,7 +114,7 @@
                        if(xPress && click){
                           click=false;
                           posCorrente++;
-                          console.log(posCorrente);
+                          //console.log(posCorrente);
                           if(posCorrente===3){
                             posCorrente=0;
                           }
@@ -123,7 +123,7 @@
                         if(yPress && click){
                           click=false;
                           posCorrente--;
-                          console.log(posCorrente);
+                          //console.log(posCorrente);
                           if(posCorrente===-1){
                             posCorrente=2;
                           }
@@ -155,7 +155,7 @@
         d3.json("http://localhost:8000/Airplanescoordinates.json")
                   .then(function(jsonAirplanesCoordinates) {
         // executed right after loading
-              console.log(jsonAirplanesCoordinates);
+              //console.log(jsonAirplanesCoordinates);
               airplanesCoordinates = jsonAirplanesCoordinates;
               draw();
         })
