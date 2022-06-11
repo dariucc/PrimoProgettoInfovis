@@ -2,7 +2,7 @@
 <html>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
-  <title>Primo Progetto Visualizzazione delle informazioni</title>
+  <title>Primo Progetto Visualizzazione dell'informazione</title>
   <style>
   body {
     background-color: #80dfff;
@@ -15,9 +15,11 @@
     var test;
 
     var airplanesCoordinates;
-   
-
-    var cloudsCoordinates = [
+    var max_x;
+    
+    var max_y;
+    var cloudsCoordinates;
+    /*var cloudsCoordinates = [
           { "x_pos": 4, "y_pos": 4 },
           { "x_pos": 9, "y_pos": 1 },
           { "x_pos": 9, "y_pos": 7 },
@@ -28,10 +30,9 @@
           { "x_pos": 8, "y_pos": 2 },
           { "x_pos": 11, "y_pos": 6 },
           { "x_pos": 7, "y_pos": 4 }
-        ];
+        ];*/
 
-    //console.log(window.innerWidth);
-    //console.log(window.innerHeight);
+  
 
     var canvas =  d3.select("body")
                     .append("svg")
@@ -39,15 +40,9 @@
                     .attr("height", window.innerHeight/8*7);
 
 
-    
-
-    var widthScale = d3.scaleLinear(); 
-    widthScale.domain([1, 16]);
-    widthScale.range([1, window.innerWidth]);
-
+    var widthScale = d3.scaleLinear();
     var heightScale = d3.scaleLinear(); 
-    heightScale.domain([1, 9]);
-    heightScale.range([1, window.innerHeight/4*3]);
+  
 
     posCorrente=0;
     xPress=false;
@@ -109,12 +104,12 @@
                       .attr("class", "airplane")
                       .attr("d", "M 341.68032,435.72254 C 341.20649,434.97913 318.35103,391.06654 290.89042,338.13903 C 263.42982,285.2115 240.5353,241.47293 240.01371,240.9422 C 239.40475,240.3226 224.87159,254.16767 199.40456,279.62871 C 162.19988,316.82465 159.74472,319.4955 159.75908,322.75711 C 159.76748,324.66943 161.29656,338.73427 163.157,354.01232 L 166.53962,381.79058 L 150.46254,397.93832 L 134.38546,414.08604 L 115.72849,378.57029 L 97.071547,343.05455 L 61.95992,324.72348 C 42.648539,314.6414 26.838515,306.16398 26.826552,305.88476 C 26.814586,305.60554 33.905134,298.28717 42.583321,289.6217 L 58.361846,273.86631 L 89.312123,277.62282 L 120.2624,281.37935 L 160.35096,241.3056 C 191.61286,210.05523 200.13431,201.01341 199.05345,200.23976 C 198.29113,199.69412 153.64225,176.03495 99.833713,147.66383 L 2,96.079986 L 22.204074,75.875926 L 42.408158,55.671865 L 163.17031,87.675347 L 283.93249,119.67882 L 339.1518,64.569475 C 377.85615,25.942215 395.70632,8.7904897 398.8355,7.2211495 C 401.71737,5.7758285 405.77566,4.8204267 410.28434,4.525862 C 419.1547,3.9463348 425.75568,6.5390314 431.62708,12.908736 C 437.08313,18.827845 438.85127,23.292794 438.82691,31.089953 C 438.7893,43.133211 439.47031,42.318501 377.46076,104.50395 L 321.56672,160.55652 L 345.71016,253.81214 C 358.98905,305.10272 372.74731,358.28843 376.28406,372.00258 L 382.71451,396.9374 L 362.62817,417.00581 C 347.70391,431.91672 342.32043,436.72684 341.68032,435.72254 z ")
                       .attr("fill", "black")
-                      .attr("transform", function (d) { return "translate(" + widthScale(d.x_pos0) + ", " +heightScale(d.y_pos0) + "), " + "scale(" + window.innerWidth/7000 + ", " + window.innerWidth/7000 + ")"; })
+                      .attr("transform", function (d) { return "translate(" + widthScale(d.x_pos0) + ", " +heightScale(d.y_pos0) + "), " + "scale(" + window.innerWidth/8000 + ", " + window.innerWidth/8000 + ")"; })
                       .on("click",function(d,i){
                        if(xPress && click){
                           click=false;
                           posCorrente++;
-                          //console.log(posCorrente);
+                          console.log(posCorrente);
                           if(posCorrente===3){
                             posCorrente=0;
                           }
@@ -123,7 +118,7 @@
                         if(yPress && click){
                           click=false;
                           posCorrente--;
-                          //console.log(posCorrente);
+                          console.log(posCorrente);
                           if(posCorrente===-1){
                             posCorrente=2;
                           }
@@ -142,7 +137,7 @@
                       .attr("d", "m299.75 60.587c-4.108 0-8.123 0.411-12.001 1.188-11.95-35.875-46.03-61.775-86.23-61.775-33.761 0-63.196 18.27-78.847 45.363-0.919-0.036-1.84-0.07-2.769-0.07-23.494 0-44.202 11.816-56.409 29.777-3.263-0.617-6.627-0.953-10.071-0.953-29.503 0-53.42 23.702-53.42 52.943 0 29.24 23.917 52.94 53.421 52.94h66.435 0.045 0.045 81.525 0.045 0.047 98.145 0.046c33.28 0 60.25-26.73 60.25-59.71 0-32.972-26.97-59.703-60.25-59.703z")
                       .attr("fill", "#FFFFFF")
                       .attr("stroke", "black")
-                      .attr("transform", function (d) { return "translate(" + widthScale(d.x_pos) + ", " + heightScale(d.y_pos) + "), " + "scale(" + window.innerWidth/4000 + ", " + window.innerWidth/4000 + ")"; })
+                      .attr("transform", function (d) { return "translate(" + widthScale((d.x_pos)*(max_x/12)) + ", " + heightScale((d.y_pos)*(max_y/9)) + "), " + "scale(" + window.innerWidth/5000 + ", " + window.innerWidth/5000 + ")"; })
                       .on("click",function(d,i){});
         }
 
@@ -151,12 +146,51 @@
           drawAirplanes();
           drawClouds();
         }
-        
+        //file di input alternativo
         d3.json("http://localhost:8000/Airplanescoordinates.json")
+        //d3.json("http://localhost:8000/Airplanescoordinates2.json")
                   .then(function(jsonAirplanesCoordinates) {
         // executed right after loading
-              //console.log(jsonAirplanesCoordinates);
+              console.log(jsonAirplanesCoordinates);
               airplanesCoordinates = jsonAirplanesCoordinates;
+              const positionx = airplanesCoordinates.map(object => {
+              return Math.max(object.x_pos0,object.x_pos1,object.x_pos2)
+              });
+              console.log(positionx);
+
+              max_x = Math.max(...positionx);
+              console.log(max_x);  
+
+              const positiony = airplanesCoordinates.map(object => {
+              return Math.max(object.y_pos0,object.y_pos1,object.y_pos2);   
+              });
+              console.log(positiony);
+
+              max_y = Math.max(...positiony);
+              console.log(max_y); 
+              
+
+              console.log(window.innerWidth);
+              console.log(window.innerHeight);
+
+              widthScale.domain([0, max_x+0.5*max_x]);
+              widthScale.range([0, window.innerWidth]);
+
+              
+              heightScale.domain([0, max_y+0.05*max_y]);
+              heightScale.range([0, window.innerHeight/4*3]); 
+              cloudsCoordinates = [
+                 { "x_pos": 4, "y_pos": 4 },
+                 { "x_pos": 9, "y_pos": 1 },
+                 { "x_pos": 9, "y_pos": 7 },
+                 { "x_pos": 8, "y_pos": 3 },
+                 { "x_pos": 10, "y_pos": 8 },
+                 { "x_pos": 6, "y_pos": 5 },
+                 { "x_pos": 7, "y_pos": 9 },
+                 { "x_pos": 8, "y_pos": 2 },
+                 { "x_pos": 11, "y_pos": 6 },
+                 { "x_pos": 7, "y_pos": 4 }
+        ]; 
               draw();
         })
         .catch(function(error) {
