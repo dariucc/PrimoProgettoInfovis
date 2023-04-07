@@ -1,4 +1,4 @@
-# Primo Progetto Visualizzazione delle informazioni
+# Primo Progetto Visualizzazione delle informazionii
 
 ## Consegna:
 
